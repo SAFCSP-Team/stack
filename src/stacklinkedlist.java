@@ -1,9 +1,10 @@
-class Stack {
-   Node top;
-   int size;
+class stacklinkedlist{
+    public Node top;  
+    int size;
 
-    public Stack () {
-        this.top = null;
+    public stacklinkedlist () {
+        top = null;
+        size = 0;
     }
 
     public void push(Book value) {
@@ -26,6 +27,7 @@ class Stack {
             Book poppedBook = top.data;
     
             top = top.next;
+            this.size-=1;
     
             return poppedBook;
     
@@ -34,11 +36,15 @@ class Stack {
     
 
     public Book top() {
+        if (isEmpty()){
+            System.out.println("stack is empty");
+            return null;
+        }
         return top.data;
     }
 
     public boolean isEmpty() {
-        return top.data == null;
+        return top == null;
     }
 
     public int size() {
@@ -47,9 +53,10 @@ class Stack {
     }
 }
 class Node{
-    Node next;
-    Book data;
+    public Node next;
+    public Book data;
     public Node(Book data){
         this.next = null;
+        this.data=data;
     } 
 }
